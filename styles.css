@@ -1,7 +1,3 @@
-body {
-  font-size: 1.1em;
-}
-
 .img-thumbnail {
     padding: 0;
     background-color: none;
@@ -24,17 +20,21 @@ body {
   }
 }
 
-.dropdown-item {
-    font-size: 1.1em;
-    padding-top: 1em;
+@media (max-width: 992px) {
+	body {
+	  font-size: 1.1em;
+	}
+	.dropdown-item {
+    	font-size: 1.1em;
+    	padding-top: 1em;
+	}
+	.navbar-nav {
+  		text-align: end;
+	}
 }
 
 .card {
   margin-bottom: 1rem;
-}
-
-.navbar-nav {
-  text-align: end;
 }
 
 h1 {
