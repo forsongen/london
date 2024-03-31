@@ -15,7 +15,7 @@
 }
 
 .dropdown-item {
-	margin-left: 0;
+	margin-left: 2em;
 }
 
 @media (min-width: 1200px) {
@@ -31,7 +31,7 @@
 	.dropdown-item {
     	font-size: 1.1em;
     	padding-top: 1em;
-	margin-left: 2em;
+	margin-left: 0;
 	}
 	.navbar-nav {
   		text-align: end;
