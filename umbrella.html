@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <script src="nav.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                fetch('https://wttr.in/london?format=j1')
+                .then(weatherImport => weatherImport.json())
+                .then(forecast => {
+                    console.log(forecast);
+                    let time = new Date().getUTCHours();
+
+                    if (time % 3 != 0) {
+                        do {
+                            time--;
+                        }
+                        while (time % 3 != 0)
+                    }
+                    document.querySelector("#test").innerHTML = time;
+
+                    let timeNow;
+                    if (time == 0) {
+                        timeNow = '12am';
+                    } else if (time == 12) {
+                        timeNow = '12pm';
+                    } else if (time < 12) {
+                        timeNow = time + 'am';
+                    } else {
+                        timeNow = (time - 12) + 'pm';
+                    }
+
+                    let time3;
+                    let v = 0;
+                    if ((time + 3) == 24) {
+                        time3 = '12am'
+                        v = 1
+                    } else if ((time + 3) == 12) {
+                        time3 = '12pm'
+                    } else if ((time + 3) <  3) {
+                        time3 = (time + 3) + 'am'
+                        v = 1;
+                    } else if ((time + 3) < 12) {
+                        time3 = (time + 3) + 'am'
+                    } else {
+                        time3 = (time - 9) + 'pm'
+                    }
+
+                    let time6;
+                    let w = 0;
+                    if ((time + 6) == 24) {
+                        time6 = '12am'
+                        w = 1
+                    } else if ((time + 6) == 27) {
+                        time6 = '3am'
+                        w = 1
+                    } else if ((time + 6) == 12) {
+                        time6 = '12pm'
+                    } else if ((time + 6) < 12) {
+                        time6 = (time + 6) + 'am'
+                    } else {
+                        time6 = (time - 6) + 'pm'
+                    }
+
+                    let x = parseInt(time / 3);
+                    let y;
+                    let z;
+
+                    if (x == 7) {
+                        y = 0;
+                        z = 1;
+                    } else if (x == 6) {
+                        y = 7;
+                        z = 0;
+                    }
+                    else {
+                        y = x + 1;
+                        z = x + 2;
+                    }
+
+                    // Current time
+                    document.querySelector("#time-1").innerHTML = timeNow;
+                    document.querySelector("#cond-1").innerHTML = forecast.weather[0].hourly[x].weatherDesc[0].value;
+                    document.querySelector("#temp-1").innerHTML = forecast.weather[0].hourly[x].tempF;
+                    document.querySelector("#rain-1").innerHTML = forecast.weather[0].hourly[x].chanceofrain;
+
+                    // +3 hours
+                    document.querySelector("#time-2").innerHTML = time3;
+                    document.querySelector("#cond-2").innerHTML = forecast.weather[v].hourly[y].weatherDesc[0].value;
+                    document.querySelector("#temp-2").innerHTML = forecast.weather[v].hourly[y].tempF;
+                    document.querySelector("#rain-2").innerHTML = forecast.weather[v].hourly[y].chanceofrain;
+
+                    // +6 hours
+                    document.querySelector("#time-3").innerHTML = time6;
+                    document.querySelector("#cond-3").innerHTML = forecast.weather[w].hourly[z].weatherDesc[0].value;
+                    document.querySelector("#temp-3").innerHTML = forecast.weather[w].hourly[z].tempF;
+                    document.querySelector("#rain-3").innerHTML = forecast.weather[w].hourly[z].chanceofrain;
+
+                    /*
+                    // 0600
+                    document.querySelector("#cond-06").innerHTML = forecast.weather[0].hourly[2].weatherDesc[0].value;
+                    document.querySelector("#temp-06").innerHTML = forecast.weather[0].hourly[2].tempF;
+                    document.querySelector("#rain-06").innerHTML = forecast.weather[0].hourly[2].chanceofrain;
+
+                    // 0900
+                    document.querySelector("#cond-09").innerHTML = forecast.weather[0].hourly[3].weatherDesc[0].value;
+                    document.querySelector("#temp-09").innerHTML = forecast.weather[0].hourly[3].tempF;
+                    document.querySelector("#rain-09").innerHTML = forecast.weather[0].hourly[3].chanceofrain;
+
+                    // 1200
+                    document.querySelector("#cond-12").innerHTML = forecast.weather[0].hourly[4].weatherDesc[0].value;
+                    document.querySelector("#temp-12").innerHTML = forecast.weather[0].hourly[4].tempF;
+                    document.querySelector("#rain-12").innerHTML = forecast.weather[0].hourly[4].chanceofrain;
+
+                    // 1500
+                    document.querySelector("#cond-15").innerHTML = forecast.weather[0].hourly[5].weatherDesc[0].value;
+                    document.querySelector("#temp-15").innerHTML = forecast.weather[0].hourly[5].tempF;
+                    document.querySelector("#rain-15").innerHTML = forecast.weather[0].hourly[5].chanceofrain;
+
+                    // 1800
+                    document.querySelector("#cond-18").innerHTML = forecast.weather[0].hourly[6].weatherDesc[0].value;
+                    document.querySelector("#temp-18").innerHTML = forecast.weather[0].hourly[6].tempF;
+                    document.querySelector("#rain-18").innerHTML = forecast.weather[0].hourly[6].chanceofrain;
+
+                    // 2100
+                    document.querySelector("#cond-21").innerHTML = forecast.weather[0].hourly[7].weatherDesc[0].value;
+                    document.querySelector("#temp-21").innerHTML = forecast.weather[0].hourly[7].tempF;
+                    document.querySelector("#rain-21").innerHTML = forecast.weather[0].hourly[7].chanceofrain;
+
+                    // 0000
+                    document.querySelector("#cond-00").innerHTML = forecast.weather[1].hourly[0].weatherDesc[0].value;
+                    document.querySelector("#temp-00").innerHTML = forecast.weather[1].hourly[0].tempF;
+                    document.querySelector("#rain-00").innerHTML = forecast.weather[1].hourly[0].chanceofrain;
+                    */
+                })
+
+                /*{
+                    let json = JSON.parse(forecast);
+                    document.querySelector("#test").innerHTML = json[1];
+                })*/
+
+                /*
+                let answer;
+                fetch('https://wttr.in/london?FQ&v1')
+                .then(rainImport => rainImport.text())
+                .then(rainToday => {
+                    let forecast = rainToday.toLowerCase();
+                    let answer;
+                    if (forecast.includes("rain") || forecast.includes("drizzle")) {
+                        answer = 'Yes <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="currentColor" class="bi bi-umbrella" viewBox="0 0 16 16"><path d="M8 0a.5.5 0 0 1 .5.5v.514C12.625 1.238 16 4.22 16 8c0 0 0 .5-.5.5-.149 0-.352-.145-.352-.145l-.004-.004-.025-.023a3.5 3.5 0 0 0-.555-.394A3.17 3.17 0 0 0 13 7.5c-.638 0-1.178.213-1.564.434a3.5 3.5 0 0 0-.555.394l-.025.023-.003.003s-.204.146-.353.146-.352-.145-.352-.145l-.004-.004-.025-.023a3.5 3.5 0 0 0-.555-.394 3.3 3.3 0 0 0-1.064-.39V13.5H8h.5v.039l-.005.083a3 3 0 0 1-.298 1.102 2.26 2.26 0 0 1-.763.88C7.06 15.851 6.587 16 6 16s-1.061-.148-1.434-.396a2.26 2.26 0 0 1-.763-.88 3 3 0 0 1-.302-1.185v-.025l-.001-.009v-.003s0-.002.5-.002h-.5V13a.5.5 0 0 1 1 0v.506l.003.044a2 2 0 0 0 .195.726c.095.191.23.367.423.495.19.127.466.229.879.229s.689-.102.879-.229c.193-.128.328-.304.424-.495a2 2 0 0 0 .197-.77V7.544a3.3 3.3 0 0 0-1.064.39 3.5 3.5 0 0 0-.58.417l-.004.004S5.65 8.5 5.5 8.5s-.352-.145-.352-.145l-.004-.004a3.5 3.5 0 0 0-.58-.417A3.17 3.17 0 0 0 3 7.5c-.638 0-1.177.213-1.564.434a3.5 3.5 0 0 0-.58.417l-.004.004S.65 8.5.5 8.5C0 8.5 0 8 0 8c0-3.78 3.375-6.762 7.5-6.986V.5A.5.5 0 0 1 8 0M6.577 2.123c-2.833.5-4.99 2.458-5.474 4.854A4.1 4.1 0 0 1 3 6.5c.806 0 1.48.25 1.962.511a9.7 9.7 0 0 1 .344-2.358c.242-.868.64-1.765 1.271-2.53m-.615 4.93A4.16 4.16 0 0 1 8 6.5a4.16 4.16 0 0 1 2.038.553 8.7 8.7 0 0 0-.307-2.13C9.434 3.858 8.898 2.83 8 2.117c-.898.712-1.434 1.74-1.731 2.804a8.7 8.7 0 0 0-.307 2.131zm3.46-4.93c.631.765 1.03 1.662 1.272 2.53.233.833.328 1.66.344 2.358A4.14 4.14 0 0 1 13 6.5c.77 0 1.42.23 1.897.477-.484-2.396-2.641-4.355-5.474-4.854z"/></svg>';
+                    }
+                    else {
+                        answer = 'No <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="currentColor" class="bi bi-brightness-high" viewBox="0 0 16 16"><path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"/></svg>';
+                    }
+                    document.querySelector("#answer").innerHTML = answer;
+                })
+                */
+            })
+        </script>
+        <link href="styles.css" rel="stylesheet">
+        <title>Laura in London</title>
+    </head>
+        <body>
+        <header>
+            <div id="nav-import"></div>
+        </header>
+        <main>
+            <div class="container">
+                <h1 id="answer" style="font-size: 150px">...</h1>
+                <p><a class="btn btn-secondary" href="index.html">Back</a></p>
+
+                <!--
+                <p>9am: <span id="cond-09"></span> (<i class="bi bi-umbrella"></i> <span id="rain-09"></span>%), <span id="temp-09"></span>°F</p>
+                <p>12pm: <span id="cond-12"></span> (<i class="bi bi-umbrella"></i> <span id="rain-12"></span>%), <span id="temp-12"></span>°F</p>
+                <p>3pm: <span id="cond-15"></span> (<i class="bi bi-umbrella"></i> <span id="rain-15"></span>%), <span id="temp-15"></span>°F</p>
+                <p>6pm: <span id="cond-18"></span> (<i class="bi bi-umbrella"></i> <span id="rain-18"></span>%), <span id="temp-18"></span>°F</p>
+                <p>9pm: <span id="cond-21"></span> (<i class="bi bi-umbrella"></i> <span id="rain-21"></span>%), <span id="temp-21"></span>°F</p>
+                <p>12am: <span id="cond-00"></span> (<i class="bi bi-umbrella"></i> <span id="rain-00"></span>%), <span id="temp-00"></span>°F</p>
+                -->
+                <p><b>Now</b> (as of <span id="time-1"></span>):<br/><span id="cond-1"></span> (<i class="bi bi-umbrella"></i> <span id="rain-1"></span>%), <span id="temp-1"></span>°F</p>
+                <p><span id="time-2"></span>:<br/><span id="cond-2"></span> (<i class="bi bi-umbrella"></i> <span id="rain-2"></span>%), <span id="temp-2"></span>°F</p>
+                <p><span id="time-3"></span>:<br/><span id="cond-3"></span> (<i class="bi bi-umbrella"></i> <span id="rain-3"></span>%), <span id="temp-3"></span>°F</p>
+                <p id="test"></p>
+            </div>
+        </main>
+        <footer>
+
+        </footer>
+    </body>
+</html>
