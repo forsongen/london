@@ -6,6 +6,10 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
         <script src="nav.js"></script>
+        <script src="filters.js"></script>
+        <script>
+
+        </script>
         <link href="styles.css" rel="stylesheet">
         <title>Machados in London</title>
     </head>
@@ -16,12 +20,17 @@
         <main>
           <h1 class="display-3">Indoors</h1>
             <div class="container">
+                <div class="row">
+                    <div class="col filters">
+                        <span>Filters:</span> <span class="badge filter central">central</span> <span class="badge filter north">north</span>
+                    </div>
+                </div>
                 <div class="row row-cols-md-3 row-cols-1">
                     <div class="col">
                         <div class="card">
                             <img src="assets/bl.jpg" class="card-img-top card-cropped" alt="British Library">
                             <div class="card-body">
-                              <h5 class="card-title">The British Library</h5>
+                              <h5 class="card-title">The British Library <span class="badge north">north</span></h5>
                               <p class="card-text">One of the largest libraries in the world, with some incredible collections. You can book tours to see some of the treasures, or their conservation work.</p>
                               <a href="https://thebritishlibrarytours.seetickets.com/content/ticket-options" class="btn btn-primary">Tour tickets</a>
                               <a href="https://maps.app.goo.gl/8Fmg28vtFqYJZLse7" class="btn btn-secondary">Location</a>
@@ -30,10 +39,10 @@
                     </div>
                     <div class="col">
                         <div class="card">
-                            <img src="assets/ethel.jpg" class="card-img-top card-cropped" alt="Epping Forest">
+                            <img src="assets/ethel.jpg" class="card-img-top card-cropped" alt="St Etheldreda's">
                             <div class="card-body">
-                              <h5 class="card-title">St Etheldreda's</h5>
-                              <p class="card-text">A 13th century Roman Catholic church that has largely survived intact. Escaped the worst of the Reformation by being used as the Spanish Embassy. Does a Latin Mass which is the closest you’ll find to worship from the Medieval era. Somehow not a touristy place.</p>
+                              <h5 class="card-title">St Etheldreda's <span class="badge central">central</span></h5>
+                              <p class="card-text">A 13th century Roman Catholic church that has largely survived intact. Escaped the worst of the Reformation by being used as the Spanish Embassy. Does a Latin Mass which is the closest you'll find to worship from the Medieval era. Somehow not a touristy place.</p>
                               <a href="https://www.stetheldreda.co.uk/" class="btn btn-primary">Website</a>
                               <a href="https://maps.app.goo.gl/K3j6nhvQMnNWX4Gy6" class="btn btn-secondary">Location</a>
                             </div>
@@ -43,7 +52,7 @@
                         <div class="card">
                             <img src="assets/asms.jpg" class="card-img-top card-cropped" alt="All Saints Margaret Street">
                             <div class="card-body">
-                              <h5 class="card-title">All Saints Margaret Street</h5>
+                              <h5 class="card-title">All Saints Margaret Street <span class="badge central">central</span></h5>
                               <p class="card-text">Just off Oxford Street, this Anglo-Catholic church is quintessential Victoriana. Also worth seeing is the Temple Church, founded by the Knights Templar in the 12th century and usually deserted.</p>
                               <a href="https://asms.uk/" class="btn btn-primary">Website</a>
                               <a href="https://maps.app.goo.gl/fF7DXKtJg766fXmj8" class="btn btn-secondary">Location</a>
@@ -54,7 +63,7 @@
                         <div class="card">
                             <img src="assets/westminster.jpg" class="card-img-top card-cropped" alt="Westminster Cathedral">
                             <div class="card-body">
-                              <h5 class="card-title">Westminster Cathedral</h5>
+                              <h5 class="card-title">Westminster Cathedral <span class="badge central">central</span></h5>
                               <p class="card-text">Breathtaking architecture, not far from Buckingham Palace and the Houses of Parliament. Vienna's mum will give you a tour!</p>
                               <a href="https://westminstercathedral.org.uk/" class="btn btn-primary">Website</a>
                               <a href="https://maps.app.goo.gl/f9YnAyU9jDGirfaeA" class="btn btn-secondary">Location</a>
@@ -65,7 +74,7 @@
                         <div class="card">
                             <img src="assets/museum.jpg" class="card-img-top card-cropped" alt="Museums and galleries">
                             <div class="card-body">
-                              <h5 class="card-title">Museums and Galleries</h5>
+                              <h5 class="card-title">Museums and Galleries <span class="badge many">many</span></h5>
                               <p class="card-text">A rainy day is a great opportunity to nip into a museum or gallery. Many of them are free to enter, and lots of them have cafes or libraries.</p>
                               <a href="https://www.londonxlondon.com/museums-in-london/" class="btn btn-primary">Museums</a>
                               <a href="https://www.londonxlondon.com/art-galleries-london/" class="btn btn-primary">Galleries</a>

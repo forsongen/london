@@ -6,6 +6,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
         <script src="nav.js"></script>
+        <script src="filters.js"></script>
         <link href="styles.css" rel="stylesheet">
         <title>Machados in London</title>
     </head>
@@ -16,6 +17,11 @@
         <main>
             <h1 class="display-3">Drinks</h1>
             <div class="container">
+                <div class="row">
+                    <div class="col filters">
+                        <span>Filters:</span> <span class="badge filter central">central</span> <span class="badge filter north">north</span> <span class="badge filter south">south</span> <span class="badge filter east">east</span>
+                    </div>
+                </div>
                 <!--Tea and Coffee-->
                 <h2 class="display-6">Tea, Coffee and Snacks</h2>
                 <div class="accordion accordion-flush" id="tea-coffee-snacks">
@@ -23,6 +29,7 @@
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#borough-market" aria-expanded="false" aria-controls="borough-market">
                                 Borough Market
+                                <span class="badge south">south</span>
                             </button>
                         </h2>
                         <div id="borough-market" class="accordion-collapse collapse" data-bs-parent="#tea-coffee-snacks">
@@ -39,9 +46,10 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                      <div class="col text-center text-md-start">
-                                        <a href="https://maps.app.goo.gl/oTDF9dANeSNdx29u8" class="btn btn-primary">Directions</a>
-                                        <a href="https://boroughmarket.org.uk/" class="btn btn-secondary">Website</a>
+                                        <div class="col text-center text-md-start">
+                                            <a href="https://maps.app.goo.gl/oTDF9dANeSNdx29u8" class="btn btn-primary">Location</a>
+                                            <a href="https://boroughmarket.org.uk/" class="btn btn-secondary">Website</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -51,6 +59,7 @@
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#lrb" aria-expanded="false" aria-controls="lrb">
                                 London Review Bookshop
+                                <span class="badge central">central</span>
                             </button>
                         </h2>
                         <div id="lrb" class="accordion-collapse collapse" data-bs-parent="#tea-coffee-snacks">
@@ -62,7 +71,7 @@
                                         </div>
                                         <div class="col-md-3 text-center align-self-center">
                                             <a href="https://maps.app.goo.gl/mU6qVCJjvkoLL7BM8">
-                                                <img src="assets/lrb.jpg" class="rounded-circle img-thumbnail" alt="Leon shop exterior"><br/>
+                                                <img src="assets/lrb.jpg" class="rounded-circle img-thumbnail" alt="London Review Bookshop"><br/>
                                             </a>
                                         </div>
                                     </div>
@@ -80,6 +89,7 @@
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bageriet" aria-expanded="false" aria-controls="bageriet">
                                 Bageriet
+                                <span class="badge central">central</span>
                             </button>
                         </h2>
                         <div id="bageriet" class="accordion-collapse collapse" data-bs-parent="#tea-coffee-snacks">
@@ -91,7 +101,7 @@
                                         </div>
                                         <div class="col-md-3 text-center align-self-center">
                                             <a href="https://maps.app.goo.gl/FjL7piPTU524mcda7">
-                                                <img src="assets/bageriet.jpg" class="rounded-circle img-thumbnail" alt="Itsu shop exterior"><br/>
+                                                <img src="assets/bageriet.jpg" class="rounded-circle img-thumbnail" alt="Bageriet"><br/>
                                             </a>
                                         </div>
                                     </div>
@@ -109,6 +119,7 @@
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tate-corner" aria-expanded="false" aria-controls="tate-corner">
                                 Tate Modern Corner Cafe
+                                <span class="badge south">south</span>
                             </button>
                         </h2>
                         <div id="tate-corner" class="accordion-collapse collapse" data-bs-parent="#tea-coffee-snacks">
@@ -120,7 +131,7 @@
                                         </div>
                                         <div class="col-md-3 text-center align-self-center">
                                             <a href="https://maps.app.goo.gl/orrwNHuGJwLYY5CT9">
-                                                <img src="assets/corner.jpg" class="rounded-circle img-thumbnail" alt="Itsu shop exterior"><br/>
+                                                <img src="assets/corner.jpg" class="rounded-circle img-thumbnail" alt="Tate Corner"><br/>
                                             </a>
                                         </div>
                                     </div>
@@ -143,6 +154,7 @@
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#grapes" aria-expanded="false" aria-controls="grapes">
                                 The Grapes
+                                <span class="badge east">east</span>
                             </button>
                         </h2>
                         <div id="grapes" class="accordion-collapse collapse" data-bs-parent="#pubs">
@@ -150,11 +162,11 @@
                                 <div class="container justify-content-center">
                                     <div class="row row-cols-1 row-cols-md-2">
                                         <div class="col-md-9 align-self-center">
-                                            <p> Ian McKellan’s pub (with Gandalf’s staff hanging behind the bar). Looks out over the Thames. Good pie too!</p>
+                                            <p> Ian McKellan's pub (with Gandalf's staff hanging behind the bar). Looks out over the Thames. Good pie too!</p>
                                         </div>
                                         <div class="col-md-3 text-center align-self-center">
                                             <a href="https://maps.app.goo.gl/DZnDDPrxxfTse58q8">
-                                                <img src="assets/grapes.jpg" class="rounded-circle img-thumbnail" alt="north sea exterior"><br/>
+                                                <img src="assets/grapes.jpg" class="rounded-circle img-thumbnail" alt="The Grapes"><br/>
                                             </a>
                                         </div>
                                     </div>
@@ -172,6 +184,7 @@
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#the-rose" aria-expanded="false" aria-controls="the-rose">
                                 The Rose
+                                <span class="badge south">south</span>
                             </button>
                         </h2>
                         <div id="the-rose" class="accordion-collapse collapse" data-bs-parent="#pubs">
@@ -201,6 +214,7 @@
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#rake" aria-expanded="false" aria-controls="rake">
                                 The Rake
+                                <span class="badge south">south</span>
                             </button>
                         </h2>
                         <div id="rake" class="accordion-collapse collapse" data-bs-parent="#pubs">
@@ -212,13 +226,13 @@
                                         </div>
                                         <div class="col-md-3 text-center align-self-center">
                                             <a href="https://maps.app.goo.gl/wtQJtVfFrhLQkraH9">
-                                                <img src="assets/rake.jpg" class="rounded-circle img-thumbnail" alt="Itsu shop exterior"><br/>
+                                                <img src="assets/rake.jpg" class="rounded-circle img-thumbnail" alt="The Rake"><br/>
                                             </a>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col text-center text-md-start">
-                                            <a href="https://maps.app.goo.gl/wtQJtVfFrhLQkraH9" class="btn btn-primary">Find nearest</a>
+                                            <a href="https://maps.app.goo.gl/wtQJtVfFrhLQkraH9" class="btn btn-primary">Location</a>
                                             <a href="https://www.utobeer.co.uk/the-rake" class="btn btn-secondary">Website</a>
                                         </div>
                                     </div>
@@ -230,6 +244,7 @@
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#snow" aria-expanded="false" aria-controls="snow">
                                 The John Snow
+                                <span class="badge central">central</span>
                             </button>
                         </h2>
                         <div id="snow" class="accordion-collapse collapse" data-bs-parent="#pubs">
@@ -241,13 +256,13 @@
                                         </div>
                                         <div class="col-md-3 text-center align-self-center">
                                             <a href="https://maps.app.goo.gl/PD2cRxRwQD8SsKoy7">
-                                                <img src="assets/johnsnow.jpg" class="rounded-circle img-thumbnail" alt="Itsu shop exterior"><br/>
+                                                <img src="assets/johnsnow.jpg" class="rounded-circle img-thumbnail" alt="John Snow"><br/>
                                             </a>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col text-center text-md-start">
-                                            <a href="https://maps.app.goo.gl/PD2cRxRwQD8SsKoy7" class="btn btn-primary">Find nearest</a>
+                                            <a href="https://maps.app.goo.gl/PD2cRxRwQD8SsKoy7" class="btn btn-primary">Location</a>
                                             </div>
                                     </div>
                                 </div>
@@ -258,6 +273,7 @@
                       <h2 class="accordion-header">
                           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#racketeer" aria-expanded="false" aria-controls="racketeer">
                               The Racketeer
+                              <span class="badge north">north</span>
                           </button>
                       </h2>
                       <div id="racketeer" class="accordion-collapse collapse" data-bs-parent="#pubs">
@@ -265,17 +281,17 @@
                               <div class="container justify-content-center">
                                   <div class="row row-cols-1 row-cols-md-2">
                                       <div class="col-md-9 align-self-center">
-                                          <p>A pretty cool little cocktail bar that’s (usually) not super jam packed because it’s tucked away on some quieter side streets.</p>
+                                          <p>A pretty cool little cocktail bar that's (usually) not super jam packed because it's tucked away on some quieter side streets.</p>
                                       </div>
                                       <div class="col-md-3 text-center align-self-center">
                                           <a href="https://maps.app.goo.gl/K2W2PqNq6XRJ6yQw7">
-                                              <img src="assets/racketeer.jpg" class="rounded-circle img-thumbnail" alt="Itsu shop exterior"><br/>
+                                              <img src="assets/racketeer.jpg" class="rounded-circle img-thumbnail" alt="Racketeer"><br/>
                                           </a>
                                       </div>
                                   </div>
                                   <div class="row">
                                       <div class="col text-center text-md-start">
-                                          <a href="https://maps.app.goo.gl/K2W2PqNq6XRJ6yQw7" class="btn btn-primary">Find nearest</a>
+                                          <a href="https://maps.app.goo.gl/K2W2PqNq6XRJ6yQw7" class="btn btn-primary">Location</a>
                                           <a href="https://www.theracketeer.co.uk/" class="btn btn-secondary">Menu</a>
                                       </div>
                                   </div>
@@ -287,6 +303,7 @@
                       <h2 class="accordion-header">
                           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#gordons" aria-expanded="false" aria-controls="gordons">
                               Gordon's Wine Bar
+                              <span class="badge central">central</span>
                           </button>
                       </h2>
                       <div id="gordons" class="accordion-collapse collapse" data-bs-parent="#pubs">
@@ -298,7 +315,7 @@
                                       </div>
                                       <div class="col-md-3 text-center align-self-center">
                                           <a href="https://maps.app.goo.gl/75PYpSoDKQefaQvr8">
-                                              <img src="assets/gordons.jpg" class="rounded-circle img-thumbnail" alt="Itsu shop exterior"><br/>
+                                              <img src="assets/gordons.jpg" class="rounded-circle img-thumbnail" alt="Roti King"><br/>
                                           </a>
                                       </div>
                                   </div>
