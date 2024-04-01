@@ -1,3 +1,5 @@
+// Version 1.0
+
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(`.filters .badge`).forEach(element => {
         if (element.innerHTML === "central") {

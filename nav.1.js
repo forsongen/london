@@ -1,4 +1,5 @@
-// On page load
+// Version 1.0
+
 document.addEventListener('DOMContentLoaded', function() {
 
     // Get navbar from nav.html
